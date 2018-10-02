@@ -1,0 +1,45 @@
+{% extends 'anasayfa/header/header.html' %}
+	{% block header %}
+	<header class="masthead text-white d-flex" style="position: absolute;top: 50%;left:50%;transform: translate(-50%,-50%);">
+      <div class="container">
+		<form class="form-inline" method="post" action="{% url 'register' %}">
+			{% csrf_token %}
+			{% if form.errors %}
+			<strong>Bir hata oluştu</strong>
+			{% endif %}
+			<div class="row">
+			<div class="col-8">
+			<p>Kullanıcı adınız sadece harf, rakam ve @.+-_ karakterlerini içerebilir.</p>
+			</div>
+			<div class="col-4">
+			<div class="form-group mx-sm-3 mb-2">
+			<input type="text" class="form-control" name="username" placeholder="Kullanıcı adı">
+			</div>
+			</div>
+			<div class="col-12">
+			<p>Şifrenizin kullanıcı bilgilerinizle benzerlik göstermemesine dikkat edin.</p>
+			</div>
+			<div class="col-8">
+			<p>Şifreniz en az 8 karekter uzunluğunda olmalıdır.</p>
+			</div>
+			<div class="col-4">
+			<div class="form-group mx-sm-3 mb-2">
+			<input type="password" class="form-control" name="password1" placeholder="Şifre">
+			</div>
+			</div>
+			<div class="col-8">
+			<p>Şifreniz en az bir harf ve bir sayı içermelidir.</p>
+			</div>
+			<div class="col-4">
+			<div class="form-group mx-sm-3 mb-2">
+			<input type="password" class="form-control" name="password2" placeholder="Şifre Onayı">
+			</div>
+			</div>
+			<div class="col" align="right">
+			<input class="btn btn-primary mb-2" type="submit" value="Kayıt ol">&nbsp;&nbsp;
+			</div>
+			</div>
+		</form>
+	  </div>
+    </header>
+    {% endblock %}

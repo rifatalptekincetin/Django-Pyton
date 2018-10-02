@@ -1,0 +1,17 @@
+{% extends 'anasayfa/header/loginedheader.html' %}
+	{% block header %}
+	<header class="masthead  d-flex" style="height:100%;background: rgba(255, 255, 255, .75);">
+      <div class="container">
+			{% for link in linkler %}
+	  <div class="card" style="">
+		<div class="card-body">
+			<h5 class="card-title">{{link.ad}}</h5>
+			<p class="card-text">{{link.link}}</p>
+			<a href="/link/{{link.id}}" class="card-link">Linke Git</a>
+			<a href="#/raporlar/{{link.id}}" class="card-link">Link Raporuna Git</a>
+		</div>
+	  </div><br>
+			{% endfor %}
+      </div>
+	</header>
+    {% endblock %}

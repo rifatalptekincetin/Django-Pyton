@@ -1,0 +1,28 @@
+{% extends 'anasayfa/header/loginedheader.html' %}
+	{% block header %}
+	<header class="masthead text-center text-white d-flex" style="position: absolute;top: 50%;left:50%;transform: translate(-50%,-50%);">
+      <div class="container">
+		<form class="form-inline" method="post" action="{% url 'register' %}">
+			{% csrf_token %}
+			{% if form.errors %}
+			<strong>Bir hata oluştu</strong>
+			{% endif %}
+			<div class="row">
+			<div class="col">
+			<div class="form-group mx-sm-3 mb-2">
+			<input type="text" class="form-control" name="first_name" placeholder="İsim">
+			</div>
+			</div>
+			<div class="col">
+			<div class="form-group mx-sm-3 mb-2">
+			<input type="text" class="form-control" name="last_name" placeholder="Soyisim">
+			</div>
+			</div>
+			<div class="col">
+			<input type="text" class="form-control" name="email" placeholder="Eposta">
+			</div>
+			</div>
+		</form>
+	  </div>
+    </header>
+    {% endblock %}
